@@ -4,7 +4,6 @@ namespace QuentinKay\LaravelTemplate\Console;
 
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use RuntimeException;
 use Symfony\Component\Process\Process;
@@ -32,32 +31,32 @@ class InstallCommand extends Command
         // Middleware...
         $this->info('Install Middlewares..');
         $this->installMiddlewareAfter('SubstituteBindings::class', '\App\Http\Middleware\HandleInertiaRequests::class');
-        Storage::copy(__DIR__.'/../../stubs/app/Http/Middleware/HandleInertiaRequests.php', app_path('Http/Middleware/HandleInertiaRequests.php'));
+        (new Filesystem)->copy(__DIR__.'/../../stubs/app/Http/Middleware/HandleInertiaRequests.php', app_path('Http/Middleware/HandleInertiaRequests.php'));
 
         // Resources..
         $this->info('Install Resources..');
 
         // CSS + SASS..
-        Storage::delete(resource_path('css/app.css'));
+        (new Filesystem)->delete(resource_path('css/app.css'));
         (new Filesystem)->ensureDirectoryExists(resource_path('scss'));
-        Storage::copy(__DIR__.'/../../stubs/resources/scss/app.scss', resource_path('scss/app.scss'));
+        (new Filesystem)->copy(__DIR__.'/../../stubs/resources/scss/app.scss', resource_path('scss/app.scss'));
 
         // Views..
-        //delete(resource_path('views/welcome.blade.php'));
-        Storage::copy(__DIR__.'/../../stubs/resources/views/app.blade.php', resource_path('views/app.blade.php'));
+        (new Filesystem)->delete(resource_path('views/welcome.blade.php'));
+        (new Filesystem)->copy(__DIR__.'/../../stubs/resources/views/app.blade.php', resource_path('views/app.blade.php'));
 
         // JS + Vue Pages..
-        Storage::copy(__DIR__.'/../../stubs/resources/js/app.js', resource_path('js/app.js'));
+        (new Filesystem)->copy(__DIR__.'/../../stubs/resources/js/app.js', resource_path('js/app.js'));
         (new Filesystem)->ensureDirectoryExists(resource_path('js/Pages'));
         (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/resources/js/Pages', resource_path('js/Pages'));
 
         // Routes..
         $this->info('Install Routes..');
-        Storage::copy(__DIR__.'/../../stubs/routes/web.php', base_path('routes/web.php'));
+        (new Filesystem)->copy(__DIR__.'/../../stubs/routes/web.php', base_path('routes/web.php'));
 
         // Vite config..
         $this->info('Install Vite Config..');
-        Storage::copy(__DIR__.'/../../stubs/vite.config.js', base_path('vite.config.js'));
+        (new Filesystem)->copy(__DIR__.'/../../stubs/vite.config.js', base_path('vite.config.js'));
 
         $this->info('Run npm install..');
         $this->runCommands(['npm install']);
