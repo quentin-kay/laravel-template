@@ -1,0 +1,29 @@
+{
+    "name": "quentin-kay/laravel-template",
+    "description": "Laravel template installer with php artisan commands.",
+    "require": {
+        "inertiajs/inertia-laravel": "^0.6.0",
+        "tightenco/ziggy": "^1.4.0",
+        "laravel/framework": "^9.25.0",
+        "php": "^8.0.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "QuentinKay\\LaravelTemplate\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "QuentinKay\\LaravelTemplate\\LaravelTemplateServiceProvider"
+            ]
+        }
+    },
+    "authors": [
+        {
+            "name": "Quentin 'kay' S.",
+            "email": "quentin.salerne@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev"
+}
