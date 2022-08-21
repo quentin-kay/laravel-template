@@ -8,7 +8,7 @@ defineProps({
 </script>
 
 <template>
-    <Head title="Welcome" />
+    <Head><title>Welcome</title></Head>
 
     <h1>Welcome!</h1>
     <br />
