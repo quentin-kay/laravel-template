@@ -1,5 +1,6 @@
 <script setup>
 import { Head, Link } from '@inertiajs/inertia-vue3';
+import route from 'ziggy-js';
 
 defineProps({
     laravelVersion: String,

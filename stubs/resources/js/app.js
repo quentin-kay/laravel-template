@@ -18,6 +18,6 @@ createInertiaApp({
             .use(ZiggyVue)
             .mount(el);
     },
-});
+}).then();
 
 InertiaProgress.init({ color: '#4B5563' });

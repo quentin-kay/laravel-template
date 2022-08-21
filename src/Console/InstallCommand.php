@@ -25,6 +25,7 @@ class InstallCommand extends Command
                     '@inertiajs/progress' => '^0.2.0',
                     'vue' => '^3.2.0',
                     'sass' => '^1.54.0',
+                    'ziggy-js' => '^1.4.6',
                 ] + $packages;
         });
 
@@ -46,6 +47,7 @@ class InstallCommand extends Command
         (new Filesystem)->copy(__DIR__.'/../../stubs/resources/views/app.blade.php', resource_path('views/app.blade.php'));
 
         // JS + Vue Pages..
+        (new Filesystem)->copy(__DIR__.'/../../stubs/jsconfig.json', base_path('jsconfig.json'));
         (new Filesystem)->copy(__DIR__.'/../../stubs/resources/js/app.js', resource_path('js/app.js'));
         (new Filesystem)->ensureDirectoryExists(resource_path('js/Pages'));
         (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/resources/js/Pages', resource_path('js/Pages'));

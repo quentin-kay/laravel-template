@@ -1,0 +1,9 @@
+{
+    "compilerOptions": {
+        "baseUrl": "./",
+        "paths": {
+            "@/*": ["src/*"],
+            "ziggy": ["vendor/tightenco/ziggy/dist/vue.m"]
+        }
+    }
+}
