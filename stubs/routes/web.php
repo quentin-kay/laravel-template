@@ -20,4 +20,7 @@ Route::get('/', function () {
         'laravelVersion' => Application::VERSION,
         'phpVersion' => PHP_VERSION,
     ]);
-});
+})->name('home');
+Route::get('test', function () {
+    return Inertia::render('Test');
+})->name('test');

@@ -14,4 +14,5 @@ defineProps({
     <br />
     <p>Laravel Version: {{ laravelVersion }}</p>
     <p>PHP Version: {{ phpVersion }}</p>
+    <Link :href="route('test')">Test</Link>
 </template>

@@ -17,4 +17,10 @@ export default defineConfig({
             },
         }),
     ],
+    resolve: {
+        alias: {
+            '@': 'resources/ts',
+            'ziggy': 'vendor/tightenco/ziggy/dist/vue.m',
+        },
+    },
 });
